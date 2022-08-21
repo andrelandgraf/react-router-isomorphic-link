@@ -108,7 +108,7 @@ const host = process.env.NODE_ENV === 'production' ? 'your-domain.com' : 'localh
 
 const App = () => {
   return (
-    <IsomorphicNavProvider host={host} useFinalSlash openOutgoingAsBlank>
+    <IsomorphicNavProvider host={host} useTrailingSlash openOutgoingAsBlank>
       ...
     </IsomorphicNavProvider>
   );
@@ -116,7 +116,7 @@ const App = () => {
 ```
 
 - `host` prop: Make sure to provide your host, so IsomorphicLink can strip your domain from internal pathnames to support SPA routing through React Router!
-- `useFinalSlash` prop: Some hosts (like Netlify) redirect all paths to a path with a trailing slash. Set this to `true` to automatically add a trailing slash to internal paths to avoid redirects. Defaults to `false`, which will not add a trailing slash to internal paths.
+- `useTrailingSlash` prop: Some hosts (like Netlify) redirect all paths to a path with a trailing slash. Set this to `true` to automatically add a trailing slash to internal paths to avoid redirects. Defaults to `false`, which will not add a trailing slash to internal paths.
 - `openOutgoingAsBlank` prop: Set a policy to open all identified outgoing links in a new tab/window. Defaults to `false`, which will open outgoing links in the same tab/window.
 
 #### isExternal prop

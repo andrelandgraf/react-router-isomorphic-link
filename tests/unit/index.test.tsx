@@ -12,11 +12,11 @@ import {
 const Wrapper: React.FC<Partial<IsomorphicNavContextProps>> = ({
   children,
   host,
-  useFinalSlash = false,
+  useTrailingSlash = false,
   openOutgoingAsBlank = false,
 }) => (
   <BrowserRouter>
-    <IsomorphicNavProvider host={host} useFinalSlash={useFinalSlash} openOutgoingAsBlank={openOutgoingAsBlank}>
+    <IsomorphicNavProvider host={host} useTrailingSlash={useTrailingSlash} openOutgoingAsBlank={openOutgoingAsBlank}>
       <Routes>
         <Route path="/" element={children} />
         <Route path="/contact">Contact Page</Route>
@@ -186,7 +186,7 @@ describe('react-router-isompohic-link', () => {
   });
   test('adds final slash to internal link if prop provided', () => {
     const { container } = render(
-      <Wrapper useFinalSlash={true}>
+      <Wrapper useTrailingSlash={true}>
         <IsomorphicLink to="contact">Ext Link</IsomorphicLink>
       </Wrapper>,
     );
